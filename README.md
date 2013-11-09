@@ -19,39 +19,48 @@ Put this on your leiningen depdencies:
 
 ### Config file location
 
-As first step you should put `datasource.clj` file on your class path. For it, we have
-some options:
+Put `datasource.clj` file on any directory that are included on your class path. As simple approximation,
+you can put it on `resources/` directory.
 
-- Put it on `resource/` directory.
-- Add `config/` directory on `:resource-paths` on your leiningen config and put a config file on it.
-
-All of them options are valid. datasource library always search `datasource.clj` on application
-classpath.
+Also, you can create new directory like `config/` and add it to `:resource-paths` on your leiningen
+project.clj file, and obviously, put `datasource.clj` there.
 
 ### Config file format
 
-The format is simple. It can not have any imports or namespace defintion at start. It shoould only
-contain a clojure hash-map with environment name keywords as first level keys. Example:
+Config file format is a clojure file, but with some limitations, it should onlu contain a clojure
+hash-map as first declaration and should contain a environment name as keyword on first level keys.
+
+This is a simple exaple:
 
 ```clojure
 {:dev {:database "jdbc:postgresql://127.0.0.1:5432/foo?foo"}
  :pro {:database "jdbc:postgresql://10.0.0.1:5432/foo?foo"}}
 ```
 
-### Api
+### Usage guide
 
-For use it on your code, you should import it:
+datasource mainly consist on one function: `get-config` that reads environment variables and system properties.
+
+This is a simple example for use it:
 
 ```clojure
 (require '[datasource.core :as ds])
+(ds/get-config)
+;; -> {:database "jdbc:postgresql://127.0.0.1:5432/foo?foo"}
 ```
 
-And executing simple function you can obtain a environment configuration
-for current environment (if no environment was set, `:dev` environment name is set as default).
+And if you previously set a diferent environ name:
+
+```
+export ENVIRON=pro
+```
+
+A result of executing a previous code should out a configuration
+associated with `:pro` environment
 
 ```clojure
 (ds/get-config)
-;; -> {:database "jdbc:postgresql://127.0.0.1:5432/foo?foo"}
+;; -> {:database "jdbc:postgresql://10.0.0.1:5432/foo?foo"}
 ```
 
 ## License
