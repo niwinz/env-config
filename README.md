@@ -1,4 +1,4 @@
-# datasource
+# env-config
 
 Clojure library that helps store environment dependent configuration
 in a separate file.
@@ -12,18 +12,18 @@ any configuration data that should be depending on current environment.
 Put this on your leiningen depdencies:
 
 ```clojure
-[datasource "0.1.0"]
+[be.niwi/env-config "0.1.0"]
 ```
 
 ## Usage
 
 ### Config file location
 
-Put `datasource.clj` file on any directory that are included on your class path. As simple approximation,
+Put `env-config.clj` file on any directory that are included on your class path. As simple approximation,
 you can put it on `resources/` directory.
 
 Also, you can create new directory like `config/` and add it to `:resource-paths` on your leiningen
-project.clj file, and obviously, put `datasource.clj` there.
+project.clj file, and obviously, put `env-config.clj` there.
 
 ### Config file format
 
@@ -39,12 +39,12 @@ This is a simple exaple:
 
 ### Usage guide
 
-datasource mainly consist on one function: `get-config` that reads environment variables and system properties.
+env-config mainly consist on one function: `get-config` that reads environment variables and system properties.
 
 This is a simple example for use it:
 
 ```clojure
-(require '[datasource.core :as ds])
+(require '[env-config.core :as ds])
 (ds/get-config)
 ;; -> {:database "jdbc:postgresql://127.0.0.1:5432/foo?foo"}
 ```
