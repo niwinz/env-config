@@ -6,9 +6,9 @@
   (:gen-class))
 
 (defn- read-env-config
-  "Read config datasource file"
+  "Read config env-config file"
   []
-  (let [ds (-> "datasource.clj"
+  (let [ds (-> "env-config.clj"
                io/resource
                slurp
                edn/read-string
