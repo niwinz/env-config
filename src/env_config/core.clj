@@ -1,11 +1,11 @@
-(ns datasource.core
+(ns env-config.core
   (:require [clojure.string :as str]
             [clojure.java.io :as io]
             [clojure.tools.reader.edn :as edn]
-            [datasource.environ :as environ])
+            [env-config.environ :as environ])
   (:gen-class))
 
-(defn- read-datasource
+(defn- read-env-config
   "Read config datasource file"
   []
   (let [ds (-> "datasource.clj"
@@ -18,6 +18,6 @@
 (defn get-config
   ([env]
    {:pre [(keyword? env)]}
-   (env (read-datasource)))
+   (env (read-env-config)))
   ([]
    (get-config (environ/get-environ-name))))

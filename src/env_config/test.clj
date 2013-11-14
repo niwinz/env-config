@@ -1,6 +1,6 @@
-(ns datasource.test
-  (:require [datasource.core :as ds]
-            [datasource.environ :as env])
+(ns env-config.test
+  (:require [env-config.core :as ds]
+            [env-config.environ :as env])
   (:gen-class))
 
 (defn -main

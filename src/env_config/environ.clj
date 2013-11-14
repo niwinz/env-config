@@ -1,4 +1,4 @@
-(ns datasource.environ
+(ns env-config.environ
   (:require [clojure.string :as str]
             [clojure.java.io :as io])
   (:gen-class))
