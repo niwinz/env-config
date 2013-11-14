@@ -27,7 +27,7 @@ project.clj file, and obviously, put `datasource.clj` there.
 
 ### Config file format
 
-Config file format is a clojure file, but with some limitations, it should onlu contain a clojure
+Config file format is a clojure file, but with some limitations, it should only contain a clojure
 hash-map as first declaration and should contain a environment name as keyword on first level keys.
 
 This is a simple exaple:
@@ -65,6 +65,7 @@ associated with `:pro` environment
 
 ## License
 
-Copyright © 2013 Andrey Antukh <niwi@niwi.be>
+Copyright © 2013 Andrey Antukh <niwi@niwi.be> Distributed under the Apache 2.0 License.
 
-Distributed under the Apache 2.0 License.
+This code includes some code from https://github.com/weavejester/environ that are licensed
+by James Reeves with Eclipse Public License.
