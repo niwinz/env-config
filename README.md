@@ -1,5 +1,7 @@
 # env-config
 
+**THIS LIBRARY IS DEPRECATED IN FAVOR OF https://github.com/james-henderson/nomad**
+
 Clojure library that helps store environment dependent configuration
 in a separate file.
 
